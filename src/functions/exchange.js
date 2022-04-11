@@ -20,7 +20,7 @@ const API_KEY = '0jJsW68dtEvK68ZkGbbW2BpCN5nID7E18lhtW4rE'
 const exchangeMoney = async (amount, baseCurrency, targetCurrency) => {
     const response = await axios.get(`${API_URL}?apikey=${API_KEY}&base_currency=${baseCurrency}&currencies=${targetCurrency}`)
     let exchange = response.data
-    let result = amount * exchange.data[targetCurrency].value
+    let result = amount * exchange.data[targetCurrency].value.toFixed(2)
     return result
 }
 
